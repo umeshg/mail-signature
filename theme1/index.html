@@ -1,0 +1,113 @@
+ <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Email Signature</TITLE>
+<META content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<script>
+		window.onload = (event) => {
+		console.log("Template	 is fully loaded");
+		const urlParams = new URLSearchParams(window.location.search);
+			document.getElementById('username').innerHTML = urlParams.get('username')
+			document.getElementById('title').innerHTML = urlParams.get('title')
+			document.getElementById('jobtitle').innerHTML = urlParams.get('jobtitle')
+			document.getElementById('phone').innerHTML = urlParams.get('phone')
+			document.getElementById('mobile').innerHTML = urlParams.get('mobile')
+			document.getElementById('email').innerHTML = urlParams.get('email')
+			document.getElementById('address').innerHTML = urlParams.get('address')
+			document.getElementById('domainurl').innerHTML = urlParams.get('domainurl')
+			document.getElementById('domainurl').href = 'https://' + urlParams.get('domainurl')
+			document.getElementById('domainlogohref').href = 'https://' + urlParams.get('domainlogohref')
+			document.getElementById('domainlogo').src = urlParams.get('domainlogo')
+			
+			const array = ['facebook', 'twitter', 'youtube', 'linkedin', 'pinterest', 'instagram']
+			array.forEach(element => {
+				console.log(element, urlParams.get(element) !==null)
+				if(urlParams.get(element) !== null)
+				{
+					document.getElementById(element).href = "https://www."+element+".com/" + urlParams.get(element)
+				}else{
+					document.getElementById(element).style.display = 'none'
+				}
+				
+			});
+			
+			if(urlParams.get('banner') !== null)
+				document.getElementById('banner').src = urlParams.get('banner')
+			else
+				document.getElementById('banner').style.display = 'none'
+		};
+				
+	</script>
+</HEAD>
+<BODY style="font-size: 10pt; font-family: Arial, sans-serif;">
+
+<table style="width: 430px; font-size: 11pt; font-family: Arial, sans-serif;" cellspacing="0" cellpadding="0" border="0">
+<tbody>
+
+ <tr>
+	<td colspan="2" style="border-bottom:1px dotted #000; padding-bottom:10px;">
+		<strong><span style="font-size: 14pt; font-family: Arial, sans-serif; color:#ed1c24;" id="username"></span></strong>
+                <span><br></span>
+                <span><br></span>
+                <strong style="font-family: Arial, sans-serif; font-size:10pt; color:#000000;" id="jobtitle"></strong>	
+		<strong><span><span> | </span><a href="" id="domainurl" target="_blank" rel="noopener" style="text-decoration:none;"><span style="font-size: 10pt; font-family: Arial, sans-serif; color:#000000;"> </span></a></span></strong>
+		<div style="font-family: Arial, sans-serif; font-weight: bold; font-size:8pt; color:#383838; margin-top:5px" id="title"></div>	
+	</td>
+  </tr>
+  
+ <tr>
+	<td colspan="2" style="font-size:1px; height:15px;line-height:1px">&nbsp;</td>
+  </tr>
+  
+ <tr>
+  <td style="text-align:center' font-size: 10pt; font-family: Arial, sans-serif; width: 108px; vertical-align: top;" width="108" valign="top" align="center">
+		<a href="" target="_blank" id="domainlogohref"><img alt="Logo" style="width:200px; height:auto; border:0;" src="" width="150" border="0" id="domainlogo"></a>
+		   
+  </td>
+    
+ <td style="padding-left:30px;" valign="top">
+  <table cellspacing="0" cellpadding="0" border="0">
+  <tbody>
+    <tr>
+      <td style="font-size: 9pt; font-family: Arial, sans-serif; vertical-align: top; line-height:15px;" valign="top">
+	  
+		<span><span style="color: #000000; font-family: Arial, sans-serif; font-size:12px"><strong>Telephone:</strong> <span id="phone"></span><br></span></span>
+		<span><span style="color: #000000; font-family: Arial, sans-serif; font-size:12px"><strong>Mobile:</strong> <span id="mobile"></span><br></span></span>
+		<span><span style="color: #000000; font-family: Arial, sans-serif; font-size:12px"><strong>Email:</strong> <span id="email"></span><br></span></span>
+		
+		<span>
+			<span style="color: #000000; font-family: Arial, sans-serif; font-size:12px"><strong>Address: </strong></span>
+			<span>
+				<span style="color: #000000; font-family: Arial, sans-serif; font-size:12px;"><span id="address"></span></span>
+			</span>
+		</span>
+
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: bottom; padding-top:5px;" valign="bottom">
+        <span><a href="" target="_blank" rel="noopener" id="facebook"><img src="fb.png" alt="facebook icon" style="border:0; height:20px; width:20px" width="20" border="0"></a>&nbsp;</span><span><a id="twitter" target="_blank" rel="noopener"><img src="tt.png" alt="twitter icon" style="border:0; height:20px; width:20px" width="20" border="0"></a>&nbsp;</span><span><a id="youtube" target="_blank" rel="noopener"><img src="yt.png" alt="youtube icon" style="border:0; height:20px; width:20px" width="20" border="0"></a>&nbsp;</span><span><a id="linkedin" target="_blank" rel="noopener"><img src="ln.png" alt="linkedin icon" style="border:0; height:20px; width:20px" width="20" border="0"></a>&nbsp;</span><span><a id="instagram" target="_blank" rel="noopener"><img src="it.png" alt="instagram icon" style="border:0; height:20px; width:20px" width="20" border="0"></a>&nbsp;</span><span><a id="pinterest" target="_blank" rel="noopener"><img src="pt.png" alt="pinterest icon" style="border:0; height:20px; width:20px" width="20" border="0"></a>&nbsp;</span>
+      </td>
+     </tr>
+  </tbody>
+  </table>
+ </td></tr> 
+ 
+ <tr>
+	<td colspan="2" style="font-size:1px; height:15px;line-height:1px">&nbsp;</td>
+  </tr>
+  
+	<tr>
+		<td colspan="2" style="padding-top:15px; border-top:1px dotted #000">
+			<a href="" target="_blank" rel="noopener"><img src="" id="banner" alt="Banner" style="max-width:528px; height:auto; border:0;" border="0"></a>
+			
+		</td>
+	</tr>
+		 
+ <tr>
+	<td colspan="2" style="padding-top:15px; line-height:13px; font-size: 7pt; color: #959595; font-family: Arial, sans-serif;">The content of this email is confidential and intended for the recipient specified in message only. It is strictly forbidden to share any part of this message with any third party, without a written consent of the sender. If you received this message by mistake, please reply to this message and follow with its deletion, so that we can ensure such a mistake does not occur in the future.</td>
+  </tr>
+	 
+</tbody>
+</table>
+
+</BODY>
+</HTML>
