@@ -34,10 +34,33 @@
 			else
 				document.getElementById('banner').style.display = 'none'
 		};
+
+		const CopyFunction = () => {
+        const elm = document.getElementById('copyCodeId')
+        // for Internet Explorer
+
+        if (document.body.createTextRange) {
+          const range = document.body.createTextRange()
+          range.moveToElementText(elm)
+          range.select()
+          document.execCommand('copy')
+          alert('Copied div content to clipboard')
+        } else if (window.getSelection) {
+          // other browsers
+
+          const selection = window.getSelection()
+          const range = document.createRange()
+          range.selectNodeContents(elm)
+          selection.removeAllRanges()
+          selection.addRange(range)
+          document.execCommand('copy')
+          alert('Copied div content to clipboard')
+        }
+      }
 				
 	</script>
 </HEAD>
-<BODY style="font-size: 10pt; font-family: Arial, sans-serif;">
+<BODY style="font-size: 10pt; font-family: Arial, sans-serif;"><div id="copyCodeId">
 
 <table style="width: 430px; font-size: 11pt; font-family: Arial, sans-serif;" cellspacing="0" cellpadding="0" border="0">
 <tbody>
@@ -108,6 +131,7 @@
 	 
 </tbody>
 </table>
-
+</div>
+<button onclick="CopyFunction()">Copy</button>
 </BODY>
 </HTML>
